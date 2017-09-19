@@ -1,0 +1,40 @@
+192.168.1.16 rlnode176  #trade
+172.18.100.177 rlnode177  #mkt
+192.168.1.16 rlnode178  #trade
+172.18.100.179 rlnode179  #web
+
+192.168.1.88 trade_auth.lk.com
+192.168.1.88 sms.lk.com
+192.168.1.88 merchant.lk.com
+192.168.1.88 pump.lk.com
+192.168.1.88 gateway01.lk.com
+192.168.1.88 action.lk.com
+192.168.1.88 log.lk.com
+192.168.1.88 risk.lk.com
+192.168.1.88 query.lk.com
+192.168.1.88 seed.gproc.com
+
+192.168.1.16 trade_hub.lk.com
+192.168.1.88 strategy.lk.com
+192.168.1.88 ptrader.lk.com
+192.168.1.88 pushlet.lk.com
+192.168.1.88 offer.lk.com
+192.168.1.88 settle.lk.com
+192.168.1.88 vmatch.lk.com
+192.168.1.88 sd01.mysql.lk.com
+192.168.1.88 rabbitmq.lk.com
+192.168.1.88 indicator.lk.com
+192.168.1.88 influxdb.lk.com
+192.168.1.88 master.influx.com
+
+192.168.1.16 market_hub.lk.com
+192.168.1.16 market_auth.lk.com
+192.168.1.16 analyze.lk.com       
+192.168.1.18 dispatch.lk.com      
+192.168.1.16 mbucket.lk.com    
+192.168.1.16 analyze-tcp.lk.com 
+
+
+208.245.107.3 gdc1.ibllc.com
+114.119.4.116 mcgw1.ibllc.com.cn
+192.30.253.112  github.com
