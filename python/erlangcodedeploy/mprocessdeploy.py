@@ -6,13 +6,18 @@ import shutil
 import tarfile
 import ConfigParser
 from multiprocessing import Pool
+#from termcolor import colored
+
+
+
+
 
 hostlit={'trade_auth':'trade_auth','sms':'sms', 'merchant':'merchant', 'pump':'pump', \
          'gateway01':'trade_gateway', 'action':'action_agent', 'log':'logging', 'risk':'risk',\
          'query':'query_engine', 'trade_hub':'trade_hub', 'strategy':'strategy_agent',\
          'ptrader':'ptrader', 'pushlet':'pushlet', 'offer':'offer_agent', 'settle':'settlement', \
          'vmatch':'virtual_match', 'market_hub':'market_hub','market_auth':'market_auth',\
-         'analyze':'market_analyzer','dispatch':'market_dispatcher','mbucket':'market_bucket'} 
+         'analyze':'market_analyzer','dispatch':'market_dispatcher','mbucket':'market_bucket','indicator':'indicator'} 
 hostip = socket.gethostbyname(socket.gethostname())
 homepwd = os.environ['HOME']
 homepth = os.environ['HOME']+'/cheetah/'
@@ -32,10 +37,10 @@ def pathlist():
 
 def copydatabase(i):
     if not os.path.exists(homepth+i+'/mnesia'):    
-        dataname = filter(lambda x: re.findall('%s\w*'%(i),x),os.listdir('./mnesia-data')) 
+        dataname = filter(lambda x: re.findall('%s\w*'%(i),x),os.listdir('./mnesia-test-data')) 
         #'.*(\.*%s*.\w*.\d*.tgz).*'%(i)
         try:
-            shutil.copy('./mnesia-data/%s'%(dataname[0]),homepth+i)
+            shutil.copy('./mnesia-test-data/%s'%(dataname[0]),homepth+i)
             os.system('tar xzf %s -C %s'%(homepth+i+'/'+dataname[0],homepth+i))
             os.remove(homepth+i+'/'+dataname[0])
             print '\033[1;32m %s \033[0m\033[1;32mDatabases mnesis copy ok! \033[0m'%(i)  
@@ -116,14 +121,19 @@ def loopconfig(nodename):
     p.close()
     p.join()
 
+def copyupsh(nodename):
+    for i in nodename:
+      shutil.copy('node.up.sh',homepth+i)
+
+
+
 def main():
-    start = time.time()
     nodename = pathlist()
-    loopdeps(nodename)
-    loopconfig(nodename)
-    loopdatabase(nodename)
+    # loopdeps(nodename)
+    # loopconfig(nodename)
+    # loopdatabase(nodename)
+    copyupsh(nodename)
     end = time.time()
-    print('Task  runs %0.2f seconds.' % ( (end - start)))
     
 if __name__ == '__main__':
     main()
