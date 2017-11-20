@@ -33,7 +33,7 @@ setuseradd()
 
 installapp()
 {
-apt-get install sudo vim aptitude ntp ntpdate ssh bash-completion net-tools -y
+apt-get install sudo vim aptitude ntp ntpdate git ssh bash-completion net-tools -y
 if [ $? -eq 0 ];then
      echo -e "\033[32mStep  apt install basic ok\033[0m"
 else
@@ -113,7 +113,7 @@ sethostname()
 main()
 {
 envi_check
-#sethostname
+sethostname
 installapp
 setuseradd
 setauth
