@@ -1,2 +1,2 @@
 # silver-journey
-python
+PYTHON ERLANG
